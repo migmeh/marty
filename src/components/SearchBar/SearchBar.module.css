@@ -1,0 +1,45 @@
+.wrapper {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.input {
+    width: 100%;
+    padding: 12px 48px 12px 48px;
+    /* Relleno para ambos iconos */
+    background: #000;
+    border: 1px solid #76DD00;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.input::placeholder {
+    color: #76DD00;
+    opacity: 0.8;
+}
+
+.input:focus {
+    box-shadow: 0 0 10px rgba(118, 221, 0, 0.4);
+}
+
+.icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-green);
+    display: flex;
+    align-items: center;
+}
+
+.rightIcon {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+}

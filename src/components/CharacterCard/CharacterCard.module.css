@@ -1,0 +1,81 @@
+.card {
+    background: #1a1a1a;
+    /* Fondo de tarjeta más oscuro */
+    border-radius: 12px;
+    padding: 0.2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    border: 2px solid transparent;
+    /* Mantener el tamaño para evitar saltos */
+    transition: all 0.2s;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover {
+    background: #252525;
+}
+
+.selected {
+    border: 2px solid #76DD00;
+    box-shadow: 0 0 10px rgba(118, 221, 0, 0.4);
+}
+
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 4px;
+    /* Estilo ligeramente más nítido de la imagen */
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+    /* Aspecto de marco como en el diseño */
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.name {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0.5rem 0;
+    text-align: center;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.likeBtn {
+    background: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 0.2rem;
+    width: 100%;
+}
+
+.likeBtn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.heartIcon {
+    font-size: 1.2rem;
+}
+
+.liked .heartIcon {
+    color: #ff4757;
+    /* Efecto de relleno simulado por el personaje */
+}
+
+/* Barra de desplazamiento personalizada para la lista si es necesario, pero esto es la tarjeta */

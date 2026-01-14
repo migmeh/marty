@@ -1,0 +1,102 @@
+.container {
+    flex: 1;
+    background: transparent;
+    padding: 1.5rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: transparent;
+    padding-bottom: 1rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+}
+
+.noResults {
+    text-align: center;
+    color: var(--text-muted);
+    width: 100%;
+    grid-column: 1 / -1;
+    margin-top: 2rem;
+}
+
+.favsButton {
+    background: #444;
+    color: #fff;
+    border: none;
+    padding: 10px 0;
+    width: 100%;
+    margin-top: auto;
+    /* Empujar al fondo si el contenedor tiene altura */
+    margin-bottom: 0;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    transition: all 0.2s;
+    position: sticky;
+    bottom: 0px;
+    z-index: 10;
+}
+
+.favsButton:hover {
+    background: #555;
+}
+
+.activeFavs {
+    background: var(--primary-green);
+    color: #000;
+}
+
+.activeFavs:hover {
+    background: #a8df5d;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0.5rem;
+        flex: none;
+        /* Prevenir expansión vertical en móvil */
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* Forzar 2 columnas */
+        gap: 0.5rem;
+        /* Espacio más pequeño */
+    }
+
+    /* Ocultar todos los elementos a partir del tercero */
+    .grid>*:nth-child(n+3) {
+        display: none;
+    }
+
+    .favsButton {
+        position: fixed;
+        bottom: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 180px;
+        background: #555;
+        border-radius: 12px 12px 0 0;
+        z-index: 101;
+        margin: 0;
+        padding: 12px 0;
+        border: none;
+    }
+
+    .activeFavs {
+        background: #9EDF25;
+        color: #000;
+    }
+}

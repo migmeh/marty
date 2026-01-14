@@ -1,0 +1,53 @@
+{
+    "characters": [
+        {
+            "id": 1,
+            "name": "Rick Sanchez",
+            "species": "Human",
+            "type": "Rick's Toxic Side",
+            "origin": "Alien Spa",
+            "location": "Earth",
+            "gender": "Male",
+            "episodes": 132,
+            "status": "Alive",
+            "image": "https://rickandmortyapi.com/api/character/avatar/361.jpeg"
+        },
+        {
+            "id": 2,
+            "name": "Morty Smith",
+            "species": "Human",
+            "type": "",
+            "origin": "Earth (C-137)",
+            "location": "Earth",
+            "gender": "Male",
+            "episodes": 50,
+            "status": "Alive",
+            "image": "https://rickandmortyapi.com/api/character/avatar/2.jpeg"
+        },
+        {
+            "id": 3,
+            "name": "Summer Smith",
+            "species": "Human",
+            "type": "",
+            "origin": "Earth (Replacement Dimension)",
+            "location": "Earth",
+            "gender": "Female",
+            "episodes": 42,
+            "status": "Alive",
+            "image": "https://rickandmortyapi.com/api/character/avatar/3.jpeg"
+        },
+        {
+            "id": 4,
+            "name": "Tuberculosis",
+            "species": "Disease",
+            "type": "",
+            "origin": "Anatomy Park",
+            "location": "Anatomy Park",
+            "gender": "unknown",
+            "episodes": 1,
+            "status": "Dead",
+            "image": "https://rickandmortyapi.com/api/character/avatar/12.jpeg"
+        }
+    ],
+    "favorites": []
+}
