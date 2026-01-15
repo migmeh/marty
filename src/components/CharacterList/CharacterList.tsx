@@ -2,9 +2,11 @@
 import { Character } from '@/types/character';
 import CharacterCard from '../CharacterCard/CharacterCard';
 import { useState } from 'react';
-import { useAppSelector } from '@/lib/hooks';
+import { useAppSelector, useAppDispatch } from '@/lib/hooks'; // Added useAppDispatch
 import styles from './CharacterList.module.css';
 import SearchBar from '../SearchBar/SearchBar';
+import FavoritesModal from '../FavoritesModal/FavoritesModal'; // Import Modal
+import { toggleFavorite } from '@/lib/features/favorites/favoritesSlice'; // Import action
 
 interface CharacterListProps {
     characters: Character[];
@@ -14,15 +16,20 @@ interface CharacterListProps {
 
 export default function CharacterList({ characters, onSelect, selectedId }: CharacterListProps) {
     const [search, setSearch] = useState('');
-    const [showFavsOnly, setShowFavsOnly] = useState(false);
+    const [isFavModalOpen, setIsFavModalOpen] = useState(false); // Modal state instead of filter
 
     const favorites = useAppSelector((state) => state.favorites.items);
+    const dispatch = useAppDispatch(); // Need dispatch to remove favs
 
     const filtered = characters.filter((c) => {
         const matchesSearch = c.name.toLowerCase().includes(search.toLowerCase());
-        const matchesFav = showFavsOnly ? favorites.some(f => f.id === c.id) : true;
-        return matchesSearch && matchesFav;
+        // Removed showFavsOnly filter logic
+        return matchesSearch;
     });
+
+    const handleRemoveFavorite = (char: Character) => {
+        dispatch(toggleFavorite(char));
+    };
 
     return (
         <div className={styles.container}>
@@ -42,12 +49,20 @@ export default function CharacterList({ characters, onSelect, selectedId }: Char
                     <p className={styles.noResults}>No characters found</p>
                 )}
             </div>
+
             <button
-                className={`${styles.favsButton} ${showFavsOnly ? styles.activeFavs : ''}`}
-                onClick={() => setShowFavsOnly(!showFavsOnly)}
+                className={styles.favsButton}
+                onClick={() => setIsFavModalOpen(true)}
             >
                 FAVS
             </button>
+
+            <FavoritesModal
+                isOpen={isFavModalOpen}
+                onClose={() => setIsFavModalOpen(false)}
+                favorites={favorites}
+                onRemove={handleRemoveFavorite}
+            />
         </div>
     );
 }
