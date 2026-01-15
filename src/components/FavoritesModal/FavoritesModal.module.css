@@ -9,17 +9,20 @@
     justify-content: center;
     align-items: flex-end;
     /* Mobile: start from bottom */
-    z-index: 1000;
+    z-index: 2000;
+    /* Ensure it's above everything */
 }
 
 .modal {
-    background: #333;
+    background: #9C9C9C;
+    /* Specific grey from user */
     width: 100%;
     max-width: 500px;
     border-radius: 20px 20px 0 0;
     padding: 20px;
     padding-bottom: 40px;
-    margin-bottom: 80px;
+    margin-bottom: 43px;
+    /* Lift up significantly to clear any sticky footers */
     /* Lift up to avoid being covered by the green bar/button */
     max-height: 80vh;
     display: flex;
@@ -102,20 +105,29 @@
 }
 
 .empty {
-    color: #aaa;
+    color: #444;
+    /* Darker text per user request */
     text-align: center;
     margin-top: 20px;
+    font-weight: bold;
 }
 
 /* Desktop override: Center modal */
+/* Desktop override: Fix visibility and width */
+/* Desktop override: Fix visibility and align with button */
 @media (min-width: 768px) {
     .overlay {
-        align-items: center;
+        align-items: flex-end;
+        /* Force items to bottom */
+        justify-content: center;
+        /* Center horizontally */
     }
 
     .modal {
-        border-radius: 12px;
-        max-height: 70vh;
         width: 400px;
+        /* Constrain width */
+        margin-bottom: 10%;
+        /* Lift up higher to ensure visibility */
+        /* Removed auto margins to prevent centering override */
     }
 }
