@@ -19,16 +19,76 @@ body {
 
 /* Estilo de la barra de desplazamiento */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
+  /* Ancho un poco mayor para los botones */
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--background);
+  background: #0b0c10;
+  /* maintain dark background */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--primary-green);
+  background: #333;
+  /* Darker thumb to contrast with buttons if needed, or stick to primary-green? User didn't specify thumb, but implies a "dark" global look. Let's keep it consistent or use a dark grey. */
+  /* Actually, user requested "make the scroll look like this" (image). Assuming the image showed a dark theme. */
+  /* Re-reading: "haga que el scroll se vea asi" (like image). I don't see the image but usually scrollbars are dark grey in these themes. */
+  /* Let's keep the existing thumb style but maybe tweak it if needed. The previous one was primary-green. */
+  /* If the user wants the BUTTON to be #5B5454B2, maybe the thumb should match or be similar? */
+  /* I will use a neutral dark thumb to not clash with the green arrow hover. */
+  background: #333;
   border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Scrollbar Buttons */
+::-webkit-scrollbar-button {
+  display: block;
+  background-color: #5B5454B2;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px;
+  /* Larger arrow icon */
+  height: 40px;
+  /* Larger button height */
+}
+
+/* Explicitly hide buttons where they shouldn't be to avoid duplicates */
+::-webkit-scrollbar-button:horizontal,
+::-webkit-scrollbar-button:vertical:start:increment,
+::-webkit-scrollbar-button:vertical:end:decrement {
+  display: none;
+}
+
+/* Top Button (Up Arrow) - ONLY at the start */
+::-webkit-scrollbar-button:vertical:start:decrement {
+  display: block;
+  border-radius: 0 0 4px 4px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z'/%3E%3C/svg%3E");
+}
+
+/* Bottom Button (Down Arrow) - ONLY at the end */
+::-webkit-scrollbar-button:vertical:end:increment {
+  display: block;
+  border-radius: 4px 4px 0 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z'/%3E%3C/svg%3E");
+}
+
+/* Hover States - Turn Green */
+::-webkit-scrollbar-button:vertical:start:decrement:hover {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2397ce4c'%3E%3Cpath d='M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z'/%3E%3C/svg%3E");
+}
+
+::-webkit-scrollbar-button:vertical:end:increment:hover {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2397ce4c'%3E%3Cpath d='M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z'/%3E%3C/svg%3E");
+}
+
+/* Active State */
+::-webkit-scrollbar-button:vertical:active {
+  background-color: #3a3636;
 }
 
 * {
