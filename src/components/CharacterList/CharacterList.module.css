@@ -1,7 +1,8 @@
 .container {
     flex: 1;
     background: transparent;
-    padding: 1.5rem;
+    padding: 1.5rem 1.5rem 0 1.5rem;
+    /* Remove bottom padding so button touches edge */
     overflow-y: auto;
     display: flex;
     flex-direction: column;
@@ -35,13 +36,17 @@
     color: #fff;
     border: none;
     padding: 10px 0;
-    width: 100%;
+    width: 200px;
+    /* Fixed width for desktop */
     margin-top: auto;
-    /* Empujar al fondo si el contenedor tiene altura */
+    /* Center horizontal, stick to bottom vertically */
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 0;
     cursor: pointer;
     font-weight: bold;
-    border-radius: 4px;
+    border-radius: 20px 20px 0 0;
+    /* Rounded top corners like tabs */
     letter-spacing: 1px;
     transition: all 0.2s;
     position: sticky;
@@ -51,6 +56,8 @@
 
 .favsButton:hover {
     background: #555;
+    color: var(--primary-green);
+    /* Text turns green on hover */
 }
 
 .activeFavs {
